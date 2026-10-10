@@ -5,6 +5,26 @@
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Ayush0Chaudhary/blurr)
 ---
 
+# Build an APK directly on GitHub
+
+You can compile a debug APK in GitHub Actions without installing Android Studio on your computer.
+
+1. Open the repository's **Actions** tab.
+2. Select **Build Android APK** and click **Run workflow**.
+3. Choose the branch to build and start the workflow.
+4. When it succeeds, open the workflow run and download the **panda-debug-apk** artifact.
+5. Extract the downloaded ZIP, transfer the APK to your Android phone, and install it. Android may ask you to allow installs from your browser or file manager.
+
+Pull requests that change Android source or build files also trigger a build. See [Build APK on GitHub](BUILD_APK_ON_GITHUB.md) for Firebase configuration, limitations, and troubleshooting.
+
+**Note:** The artifact is a debug APK for personal testing, not a Play Store release. If Firebase configuration is not provided, the CI workflow uses a placeholder configuration that allows compilation but does not enable Firebase-backed features. Never commit API keys or signing credentials.
+
+---
+
+# 🐼 Panda: Your Personal AI Phone Operator
+
+## You touch grass. I'll touch your glass.
+
 # Demos:
 
 #### Explaining all the triggers of Panda
@@ -82,7 +102,6 @@ or
 
 GEMINI_API_KEYS=
 ```
-
 
 
 
