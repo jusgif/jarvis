@@ -3,6 +3,22 @@
 [![Join Discord](https://img.shields.io/badge/Join%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/b2hxFNXvWk)
 <a href='https://play.google.com/store/apps/details?id=com.blurr.voice&hl=en_US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width=250/></a>
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Ayush0Chaudhary/blurr)
+# Build an APK directly on GitHub
+
+You can compile a debug APK in GitHub Actions without installing Android Studio on your computer.
+
+1. Open the repository's **Actions** tab.
+2. Select **Build Android APK** and click **Run workflow**.
+3. Choose `main` and start the workflow.
+4. When it finishes, open the workflow run and download the **panda-debug-apk** artifact.
+5. Extract the ZIP, transfer the APK to your Android phone, and install it. Android may ask you to allow installs from your browser or file manager.
+
+Builds also run automatically when Android source or build files are pushed directly to `main`. See [Build APK on GitHub](BUILD_APK_ON_GITHUB.md) for Firebase setup and troubleshooting.
+
+**Note:** This is a debug APK for personal testing, not a Play Store release. Without Firebase configuration, CI uses a placeholder that does not enable Firebase-backed features. Never commit API keys or signing credentials.
+
+---
+
 ---
 
 # Demos:
