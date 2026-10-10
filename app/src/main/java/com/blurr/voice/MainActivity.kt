@@ -284,7 +284,7 @@ class MainActivity : BaseNavigationActivity() {
         }
 
         wakeWordHelpLink.setOnClickListener {
-            showWakeWordFailureDialog()
+            Toast.makeText(this, "Tap the microphone/assistant control, then speak your command.", Toast.LENGTH_LONG).show()
         }
         findViewById<TextView>(R.id.disclaimer_link).setOnClickListener {
             showDisclaimerDialog()
