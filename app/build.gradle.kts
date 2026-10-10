@@ -34,7 +34,6 @@ android {
     val apiKeys = localProperties.getProperty("GEMINI_API_KEYS") ?: ""
     val tavilyApiKeys = localProperties.getProperty("TAVILY_API") ?: ""
     val mem0ApiKey = localProperties.getProperty("MEM0_API") ?: ""
-    val picovoiceApiKey = localProperties.getProperty("PICOVOICE_ACCESS_KEY") ?: ""
     val googleTtsApiKey = localProperties.getProperty("GOOGLE_TTS_API_KEY") ?: ""
     val googlecloudGatewayPicovoice =
         localProperties.getProperty("GCLOUD_GATEWAY_PICOVOICE_KEY") ?: ""
@@ -59,7 +58,6 @@ android {
         buildConfigField("String", "GEMINI_API_KEYS", "\"$apiKeys\"")
         buildConfigField("String", "TAVILY_API", "\"$tavilyApiKeys\"")
         buildConfigField("String", "MEM0_API", "\"$mem0ApiKey\"")
-        buildConfigField("String", "PICOVOICE_ACCESS_KEY", "\"$picovoiceApiKey\"")
         buildConfigField("boolean", "ENABLE_DIRECT_APP_OPENING", "true")
         buildConfigField("boolean", "SPEAK_INSTRUCTIONS", "true")
         buildConfigField("String", "GOOGLE_TTS_API_KEY", "\"$googleTtsApiKey\"")
@@ -135,9 +133,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     // https://mvnrepository.com/artifact/androidx.test.uiautomator/uiautomator
     implementation("androidx.test.uiautomator:uiautomator:2.3.0")
-
-    // Porcupine Wake Word Engine
-    implementation("ai.picovoice:porcupine-android:3.0.2")
 
     implementation("com.google.firebase:firebase-analytics")
 
