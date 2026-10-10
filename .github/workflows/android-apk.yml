@@ -63,6 +63,12 @@ jobs:
                   "mobilesdk_app_id": "1:1234567890:android:0123456789abcdef",
                   "android_client_info": { "package_name": "com.blurr.voice" }
                 },
+                "oauth_client": [
+                  {
+                    "client_id": "1234567890-ci-placeholder.apps.googleusercontent.com",
+                    "client_type": 3
+                  }
+                ],
                 "api_key": [{ "current_key": "AIzaSyDUMMY_CI_ONLY_NOT_A_REAL_KEY" }]
               }
             ],
@@ -79,7 +85,7 @@ jobs:
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: panda-debug-apk
+          name: jarvis-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
           retention-days: 14
