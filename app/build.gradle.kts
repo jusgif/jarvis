@@ -35,8 +35,6 @@ android {
     val tavilyApiKeys = localProperties.getProperty("TAVILY_API") ?: ""
     val mem0ApiKey = localProperties.getProperty("MEM0_API") ?: ""
     val googleTtsApiKey = localProperties.getProperty("GOOGLE_TTS_API_KEY") ?: ""
-    val googlecloudGatewayPicovoice =
-        localProperties.getProperty("GCLOUD_GATEWAY_PICOVOICE_KEY") ?: ""
     val googlecloudGatewayURL = localProperties.getProperty("GCLOUD_GATEWAY_URL") ?: ""
     val googlecloudProxyURL = localProperties.getProperty("GCLOUD_PROXY_URL") ?: ""
     val googlecloudProxyURLKey = localProperties.getProperty("GCLOUD_PROXY_URL_KEY") ?: ""
@@ -61,11 +59,6 @@ android {
         buildConfigField("boolean", "ENABLE_DIRECT_APP_OPENING", "true")
         buildConfigField("boolean", "SPEAK_INSTRUCTIONS", "true")
         buildConfigField("String", "GOOGLE_TTS_API_KEY", "\"$googleTtsApiKey\"")
-        buildConfigField(
-            "String",
-            "GCLOUD_GATEWAY_PICOVOICE_KEY",
-            "\"$googlecloudGatewayPicovoice\""
-        )
         buildConfigField("String", "GCLOUD_GATEWAY_URL", "\"$googlecloudGatewayURL\"")
         buildConfigField("String", "GCLOUD_PROXY_URL", "\"$googlecloudProxyURL\"")
         buildConfigField("String", "GCLOUD_PROXY_URL_KEY", "\"$googlecloudProxyURLKey\"")
