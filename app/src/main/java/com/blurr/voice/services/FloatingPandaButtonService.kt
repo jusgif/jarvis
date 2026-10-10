@@ -109,7 +109,7 @@ class FloatingPandaButtonService : Service() {
 
     private fun createFloatingView(): Button {
         return Button(this).apply {
-            text = "Hey Panda"
+            text = "Hey Jarvis"
             // Prevent text from being all caps for a softer look
             isAllCaps = false
             setTextColor(Color.WHITE)
