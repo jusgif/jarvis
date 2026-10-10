@@ -199,12 +199,6 @@
             android:foregroundServiceType="specialUse" />
 
         <service
-            android:name=".services.EnhancedWakeWordService"
-            android:enabled="true"
-            android:exported="false"
-            android:foregroundServiceType="microphone" />
-
-        <service
             android:name=".ConversationalAgentService"
             android:enabled="true"
             android:exported="false"
