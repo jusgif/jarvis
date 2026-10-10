@@ -45,6 +45,9 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          cmdline-tools-version: "latest"
+          packages: "platform-tools platforms;android-35 build-tools;35.0.0"
 
       # This repository's Google Services Gradle plugin expects a config file at build time.
       # If the real Firebase config is supplied as a repository secret, use it.
