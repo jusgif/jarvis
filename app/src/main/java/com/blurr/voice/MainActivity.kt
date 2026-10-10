@@ -258,10 +258,10 @@ class MainActivity : BaseNavigationActivity() {
         if (!ConversationalAgentService.isRunning) {
             val serviceIntent = Intent(this, ConversationalAgentService::class.java)
             ContextCompat.startForegroundService(this, serviceIntent)
-            Toast.makeText(this, "Panda is waking up...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Jarvis is listening...", Toast.LENGTH_SHORT).show()
         } else {
             Logger.d("MainActivity", "ConversationalAgentService is already running.")
-            Toast.makeText(this, "Panda is already awake!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Jarvis is already listening.", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -284,7 +284,7 @@ class MainActivity : BaseNavigationActivity() {
         }
 
         wakeWordHelpLink.setOnClickListener {
-            Toast.makeText(this, "Tap the microphone/assistant control, then speak your command.", Toast.LENGTH_LONG).show()
+            startConversationalAgent()
         }
         findViewById<TextView>(R.id.disclaimer_link).setOnClickListener {
             showDisclaimerDialog()
