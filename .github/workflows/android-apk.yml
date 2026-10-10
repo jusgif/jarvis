@@ -14,6 +14,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: jarvis-android-apk-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-debug-apk:
     name: Build debug APK
