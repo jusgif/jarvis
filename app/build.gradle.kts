@@ -143,7 +143,6 @@ dependencies {
     implementation(libs.firebase.auth)
 
     // Add the dependency for the Google Play services library
-    implementation(libs.play.services.auth)
 
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-crashlytics-ndk")
