@@ -1,4 +1,4 @@
-# Build Panda APK directly on GitHub
+# Build Jarvis APK directly on GitHub
 
 You can compile this Android project on GitHub without installing Android Studio locally.
 
@@ -8,7 +8,7 @@ You can compile this Android project on GitHub without installing Android Studio
 2. Select **Build Android APK**.
 3. Click **Run workflow**, choose `main`, and start the workflow.
 4. Wait for the workflow to finish.
-5. Open the completed run and download the **panda-debug-apk** artifact.
+5. Open the completed run and download the **jarvis-debug-apk** artifact.
 6. Extract the ZIP to get the APK, transfer it to your Android phone, and install it. Android may ask you to allow installs from your browser or file manager.
 
 A build also runs automatically when Android source or build files are pushed directly to `main`.
@@ -25,6 +25,18 @@ To build with your Firebase project without committing its configuration file:
 4. Run the workflow again.
 
 Do not commit private API keys or signing keys. The artifact is a debug APK, not a Play Store release. Gemini/Picovoice or other service credentials may need separate configuration.
+
+
+## AI runtime configuration
+
+For voice commands to reach an AI model, add at least one runtime credential in **Settings → Secrets and variables → Actions**:
+
+- `GEMINI_API_KEYS`: one or more Gemini API keys accepted by this project's configuration, or
+- `GCLOUD_PROXY_URL` and optionally `GCLOUD_PROXY_URL_KEY`: your compatible proxy endpoint and key.
+
+These values are injected into `local.properties` only during the build and are not committed. If neither Gemini nor proxy configuration is supplied, the APK can compile and install, but AI command processing will not be fully functional.
+
+The app's login and Firebase-backed features also require a real Firebase project. Set `GOOGLE_SERVICES_JSON_BASE64` as described above. A CI placeholder is only for compilation and does not provide a working login.
 
 ## Troubleshooting
 
