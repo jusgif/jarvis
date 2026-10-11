@@ -81,6 +81,23 @@ jobs:
           JSON
           fi
 
+      # Inject runtime credentials without committing them to the repository.
+      - name: Configure runtime API credentials
+        shell: bash
+        env:
+          GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
+          GCLOUD_PROXY_URL: ${{ secrets.GCLOUD_PROXY_URL }}
+          GCLOUD_PROXY_URL_KEY: ${{ secrets.GCLOUD_PROXY_URL_KEY }}
+        run: |
+          {
+            echo "GEMINI_API_KEYS=$GEMINI_API_KEYS"
+            echo "GCLOUD_PROXY_URL=$GCLOUD_PROXY_URL"
+            echo "GCLOUD_PROXY_URL_KEY=$GCLOUD_PROXY_URL_KEY"
+          } > local.properties
+          if [ -z "$GEMINI_API_KEYS" ] && [ -z "$GCLOUD_PROXY_URL" ]; then
+            echo "::warning::No Gemini/proxy credential configured; APK will compile but AI commands will not work until a runtime credential is configured."
+          fi
+
       - name: Build debug APK
         run: |
           chmod +x ./gradlew
