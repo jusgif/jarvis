@@ -3,7 +3,7 @@
     android:id="@+id/floatingPandaButton"
     android:layout_width="120dp"
     android:layout_height="48dp"
-    android:text="Hey Panda!"
+    android:text="Hey Jarvis"
     android:textSize="12sp"
     android:textColor="@android:color/white"
     android:background="@drawable/floating_button_background"
