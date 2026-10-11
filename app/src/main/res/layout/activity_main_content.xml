@@ -181,7 +181,7 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="12dp"
-                        android:text="Make panda do something"
+                        android:text="Make Jarvis do something"
                         android:textSize="12sp" />
 
                 </LinearLayout>
