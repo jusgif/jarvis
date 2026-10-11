@@ -48,7 +48,7 @@ class SettingsActivity : BaseNavigationActivity() {
     companion object {
         private const val PREFS_NAME = "BlurrSettings"
         private const val KEY_SELECTED_VOICE = "selected_voice"
-        private const val TEST_TEXT = "Hello, I'm Panda, and this is a test of the selected voice."
+        private const val TEST_TEXT = "Hello, I'm Jarvis, and this is a test of the selected voice."
         private val DEFAULT_VOICE = TTSVoice.CHIRP_PUCK
         const val KEY_SHOW_THOUGHTS = "show_thoughts"
     }
@@ -120,7 +120,7 @@ class SettingsActivity : BaseNavigationActivity() {
             showBatteryOptimizationDialog()
         }
         buttonSignOut.setOnClickListener {
-            showSignOutConfirmationDialog()
+            showResetProfileConfirmationDialog()
         }
 
         findViewById<TextView>(R.id.viewTaskLogsButton).setOnClickListener {
@@ -249,18 +249,18 @@ class SettingsActivity : BaseNavigationActivity() {
         )
     }
 
-    private fun showSignOutConfirmationDialog() {
+    private fun showResetProfileConfirmationDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Sign Out")
-            .setMessage("Are you sure you want to sign out? This will clear all your settings and data.")
-            .setPositiveButton("Sign Out") { _, _ ->
-                signOut()
+            .setTitle("Reset Local Profile")
+            .setMessage("Are you sure you want to reset your local profile and settings? Jarvis does not require an account.")
+            .setPositiveButton("Reset") { _, _ ->
+                resetLocalProfile()
             }
             .setNegativeButton("Cancel", null)
             .show()
     }
 
-    private fun signOut() {
+    private fun resetLocalProfile() {
         // Clear User Profile
         val userProfileManager = UserProfileManager(this)
         userProfileManager.clearProfile()
@@ -269,8 +269,8 @@ class SettingsActivity : BaseNavigationActivity() {
         getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit().clear().apply()
 
 
-        // Restart the app by navigating to the onboarding screen
-        val intent = Intent(this, LoginActivity::class.java)
+        // Restart the app without requiring an account
+        val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         finish()
