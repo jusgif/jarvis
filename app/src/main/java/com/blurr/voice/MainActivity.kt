@@ -31,7 +31,6 @@ import com.blurr.voice.utilities.Logger
 import com.blurr.voice.utilities.OnboardingManager
 import com.blurr.voice.utilities.PermissionManager
 import com.blurr.voice.utilities.UserIdManager
-import com.blurr.voice.utilities.UserProfileManager
 import com.blurr.voice.utilities.VideoAssetManager
 import com.blurr.voice.utilities.WakeWordManager
 import com.blurr.voice.utilities.PandaState
@@ -121,14 +120,7 @@ class MainActivity : BaseNavigationActivity() {
         super.onCreate(savedInstanceState)
 
         auth = Firebase.auth
-        val currentUser = auth.currentUser
-        val profileManager = UserProfileManager(this)
 
-        if (currentUser == null || !profileManager.isProfileComplete()) {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-            return
-        }
         onboardingManager = OnboardingManager(this)
         if (!onboardingManager.isOnboardingCompleted()) {
             Logger.d("MainActivity", "User is logged in but onboarding not completed. Relaunching permissions stepper.")
@@ -237,12 +229,6 @@ class MainActivity : BaseNavigationActivity() {
 
     override fun onStart() {
         super.onStart()
-        if (auth.currentUser == null) {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-            return
-        }
-        
         showLoading(true)
         performBillingCheck()
     }
